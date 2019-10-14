@@ -21,11 +21,11 @@
 #include <windows.h>
 
 char* optarg = NULL;
-int optind = 1;
+int optind = 0;
 
 int getopt(int argc, char *const argv[], const char *optstring)
 {
-    if ((optind >= argc) || (argv[optind][0] != '-') || (argv[optind][0] == 0))
+    if ((++optind >= argc) || (argv[optind][0] != '-') || (argv[optind][0] == 0))
     {
         return -1;
     }
